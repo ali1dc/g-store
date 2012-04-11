@@ -64,7 +64,7 @@
   width: auto; }
 
 #featured li.ui-tabs-nav-item a {
-  background: url(../images/cbbb-sprites.png) -209px -151px no-repeat;
+  background: url(../images/sprites.png) -209px -151px no-repeat;
   display: block;
   height: 14px;
   padding: 1px;
@@ -72,10 +72,10 @@
   text-indent: -9999em; }
 
 #featured li.ui-tabs-nav-item a:hover {
-  background: url(../images/cbbb-sprites.png) -190px -151px no-repeat; }
+  background: url(../images/sprites.png) -190px -151px no-repeat; }
 
 #featured ul.ui-tabs-nav li.ui-tabs-selected a {
-  background: url(../images/cbbb-sprites.png) -190px -151px no-repeat; }
+  background: url(../images/sprites.png) -190px -151px no-repeat; }
 
 #featured .ui-tabs-panel {
   position: relative;
@@ -106,15 +106,18 @@
   font-family: Georgia, serif;
   font-size: 1.1em;
   line-height: 1.2em; }
-
+/*
 #featured .info p.short {
   display: block; }
 
 #featured .info p.long {
-  display: none; }
+  display: block; }
 
 #featured .info .find-more {
   display: none; }
+*/  
+#featured .ui-tabs-panel img {
+  display: block; }  
 
 #featured .info a:hover {
   color: #0D7C99; }
@@ -122,9 +125,6 @@
 #featured .ui-tabs-hide {
   display: none; }
 
-#featured .ui-tabs-panel img {
-  display: none; }
-  
 #seg-level-1, #seg-level-2, #seg-level-3 {
     border-bottom: 1px solid #CCCCCC;
     margin-bottom: 5px;
@@ -150,3 +150,7 @@
 .seg-block-R {
     margin-left: 1.51515%;
 }
+
+
+
+

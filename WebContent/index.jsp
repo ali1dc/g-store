@@ -7,6 +7,11 @@
 	<title>Welcome to our online store</title>
     <link href="css/base.css" rel="stylesheet" type="text/css" />
     <link href="css/item.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.custom.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/slide.js"></script>
+
 </head>
 <body>
     <div id="page">
@@ -43,7 +48,7 @@
                 <div class="slide-block">
                     <div class="bluebox" id="featured" style="height: 200px;">
                         <div class="fadein">
-                            <div class="ui-tabs-panel" id="fragment-1" style="display: block;">
+                            <div class="ui-tabs-panel" id="fragment-1">
                                 <img alt="image for product 1" src="#">
                                 <div class="info">
                                     <h2>
@@ -51,53 +56,53 @@
                                     <p class="long">
                                         this is description for product 1
                                     </p>
-                                    <a class="find-more" href="#">more detail</a>
+                                    <a class="find-more" href="#">more detail 1</a>
                                 </div>
                             </div>
-                            <div class="ui-tabs-panel " id="fragment-2" style="display: none;">
+                            <div class="ui-tabs-panel" id="fragment-2">
                                 <img alt="product 2 image" src="#">
                                 <div class="info">
                                     <h2>
                                         <a href="#">product 2 title</a>
                                     </h2>
                                     <p class="long">
-                                        this is description for product 1
+                                        this is description for product 2
                                     </p>
-                                    <a class="find-more" href="#">more detail</a>
+                                    <a class="find-more" href="#">more detail 2</a>
                                 </div>
                             </div>
-                            <div class="ui-tabs-panel " id="fragment-3" style="display: none;">
+                            <div class="ui-tabs-panel" id="fragment-3">
                                 <img alt="product 3 image" src="#">
                                 <div class="info">
                                     <h2>
                                         <a href="#">product 3 title</a>
                                     </h2>
                                     <p class="long">
-                                        this is description for product 1
+                                        this is description for product 3
                                     </p>
-                                    <a class="find-more" href="#">more detail</a>
+                                    <a class="find-more" href="#">more detail 3</a>
                                 </div>
                             </div>
-                            <div class="ui-tabs-panel " id="fragment-4" style="display: none;">
+                            <div class="ui-tabs-panel" id="fragment-4">
                                 <img alt="product 4 image" src="#">
                                 <div class="info">
                                     <h2>
                                         <a href="#">product 4 detail</a></h2>
                                     <p class="long">
-                                        this is description for product 1
+                                        this is description for product 4
                                     </p>
-                                    <a class="find-more" href="#">more detail</a>
+                                    <a class="find-more" href="#">more detail 4</a>
                                 </div>
                             </div>
-                            <div class="ui-tabs-panel " id="fragment-5" style="display: none;">
+                            <div class="ui-tabs-panel" id="fragment-5">
                                 <img alt="product 5 image" src="#">
                                 <div class="info">
                                     <h2>
                                         <a href="#">product 5 title</a></h2>
                                     <p class="long">
-                                        this is description for product 1
+                                        this is description for product 5
                                     </p>
-                                    <a class="find-more" href="#">more detail</a>
+                                    <a class="find-more" href="#">more detail 5</a>
                                 </div>
                             </div>
                         </div>
