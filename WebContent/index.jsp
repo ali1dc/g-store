@@ -11,34 +11,7 @@
 <body>
     <div id="page">
         <!-- Header -->
-        <header>
-            <div id="header-content" class="embeddable">
-                <!--<div id="bbb-logo"></div>-->
-                <div id="header-sub-container">
-                    <div id="masthead">
-                        <h1 class="site-title"><a href="/">Online Generic Store<sup>&reg;</sup></a></h1>
-                        <h2 class="bbb-location">
-                            <!-- if user is not logged in -->
-                            <!--<a class="find-bbb" href="#">Member Login</a>-->
-                            <!-- else user is logged in -->
-                            <label class="find-bbb">Welcome <a href="#">Ali Jafari</a></label>
-                        </h2>
-                    </div>
-                    <nav id="global-nav">
-                        <ul class="level1">
-                            <li class="mega here"><a href="#">Products</a></li>
-                            <li class="mega"><a href="#">Categories</a></li>
-                            <li class="mega"><a href="#">Spacials</a></li>
-                            <li class="mega"><a href="#">About Us</a></li>
-                            <li class="mega"><a href="#">Contact Us</a></li>
-                            <li class="search" style="float:right;float:right;margin-top:10px;margin-right:5px">
-                                <input type="text" style="width:150px" placeholder="search by keyword or item#" />
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        <jsp:include page="includes/header.jsp"/>
         <!-- End of Header -->
         <div id="section">
             <nav id="primary-nav" class="embeddable primary-nav">
@@ -179,20 +152,7 @@
             </aside>
         </div>
         <!-- Footer -->
-        <footer>
-		    <div class="embeddable" id="footer">
-                <p>&copy; 2012 Online Generic Store</p>
-                <p>
-                    <a href="#">Privacy Policy</a>
-                        &nbsp;|&nbsp;
-                    <a href="#">Terms of Use</a>
-                        &nbsp;|&nbsp;
-                    <a href="#">About Us</a>
-                        &nbsp;|&nbsp;
-                    <a href="#">Contact Us</a>
-                </p>
-            </div>
-	    </footer>
+        <jsp:include page="includes/footer.jsp"/>
         <!-- End of Footer -->
     </div>
 </body>
