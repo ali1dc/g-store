@@ -15,7 +15,7 @@ import java.util.HashMap;
  */
 public class User {
     
-    private String userID, email, userRoleID, firstName, lastName, primaryPhone,
+    private String userID, email, password, userRoleID, firstName, lastName, primaryPhone,
             secondaryPhone, primaryAddressID;
     
     private Date registerDate, lastLoginDate;
@@ -34,6 +34,14 @@ public class User {
     }
     public void setEmail(String email){
         this.email = email;
+    }
+    
+    // Really should use a cryptographic hash, rather than a plaintext password
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     public String getUserRoleID(){
