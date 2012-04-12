@@ -15,8 +15,8 @@ import java.util.HashMap;
  */
 public class User {
     
-    private String userID, email, password, userRoleID, firstName, lastName, primaryPhone,
-            secondaryPhone, primaryAddressID;
+    private String userID="", email="", password="", userRoleID="", firstName="", lastName="", primaryPhone="",
+            secondaryPhone="", primaryAddressID="";
     
     private Date registerDate, lastLoginDate;
     

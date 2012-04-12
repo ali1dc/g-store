@@ -245,6 +245,7 @@ footer {
   border: 1px solid #e0eef1;
   padding: 10px; }
 
+/* Commenting this out because it is hiding the log-in and register buttons in login.jsp
 .button {
   border: medium none;
   color: transparent;
@@ -255,6 +256,7 @@ footer {
   outline: medium none;
   text-indent: -9999px;
   text-transform: capitalize; }
+*/
 
 .green-btn {
   color: #ffffff;
