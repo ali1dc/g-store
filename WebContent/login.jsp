@@ -36,6 +36,7 @@
         <div id="page">
             <!-- Header -->
             <jsp:include page="includes/header.jsp"/>
+            <p>Hello, World!</p>
 
             <jsp:useBean id="user" scope="session" class="lib.User"/>
             <table>
