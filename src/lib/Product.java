@@ -17,6 +17,7 @@ public class Product {
     private String productID, asin, productName, productDescription;
     private int quantityOnHand;
     private double price;
+    private ItemImage indexImageInfo, productImageInfo;
     private Image productImage;
     private HashMap<String, Category> categories = 
             new HashMap<String, Category>();
@@ -61,6 +62,20 @@ public class Product {
     }
     public void setPrice(double price){
         this.price = price;
+    }
+    
+    public ItemImage getIndexImageInfo(){
+        return indexImageInfo;
+    }
+    public void setIndexImageInfo(ItemImage imageInfo){
+        this.indexImageInfo = imageInfo;
+    }
+    
+    public ItemImage getProductImageInfo(){
+        return productImageInfo;
+    }
+    public void setProductImageInfo(ItemImage productImageInfo){
+        this.productImageInfo = productImageInfo;
     }
     
     public Image getProductImage(){
