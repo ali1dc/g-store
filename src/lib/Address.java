@@ -13,6 +13,8 @@ public class Address {
     private String addressID, address1, address2, city, state;
     private int postalCode;
     
+    public Address() {}
+    
     public String getAddressID(){
         return addressID;
     }

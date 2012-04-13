@@ -37,9 +37,9 @@ public class ProductServlet extends HttpServlet {
         if(request.getParameter("productID")!=null){
             String productID = request.getParameter("productID");
             urlToUse = productURL;
-            ProductBean bean = new ProductBean(productID);
-            Product product = bean.getProduct();
-            request.setAttribute("product", product);
+            //ProductBean bean = new ProductBean(productID);
+            //Product product = bean.getProduct();
+            //request.setAttribute("product", product);
         }
         
         RequestDispatcher dispatcher = 
