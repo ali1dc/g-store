@@ -14,6 +14,7 @@ local.properties
 .loadpath
 build/
 nbproject/
+build.xml
 
 # External tool builders
 .externalToolBuilders/

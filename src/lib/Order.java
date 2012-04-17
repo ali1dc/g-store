@@ -19,6 +19,8 @@ public class Order {
     private boolean paymentConfirmed;
     private double totalCost;
     
+    public Order() {}
+    
     public String getOrderID(){
         return orderID;
     }
