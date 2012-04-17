@@ -7,11 +7,13 @@ package lib;
 import java.awt.Image;
 import java.util.Collection;
 import java.util.HashMap;
+import javax.persistence.*;
 
 /**
  *
  * @author Taidg
  */
+@Entity
 public class Product {
     
     private String productID, asin, productName, productDescription;
@@ -22,6 +24,7 @@ public class Product {
     private HashMap<String, Category> categories = 
             new HashMap<String, Category>();
     
+    @Id
     public String getProductID(){
         return productID;
     }

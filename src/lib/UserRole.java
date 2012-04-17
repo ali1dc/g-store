@@ -4,10 +4,12 @@
  */
 package lib;
 
+import javax.persistence.*;
 /**
  *
  * @author Taidg
  */
+@Entity
 public class UserRole {
     
     private String userRole, role;
@@ -15,6 +17,7 @@ public class UserRole {
     private static final String USER = "User";
     private static final String ADMIN = "Admin";
     
+@Id    
     public String getUserRole(){
         return userRole;
     }

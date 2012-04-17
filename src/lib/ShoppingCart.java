@@ -7,11 +7,13 @@ package lib;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import javax.persistence.*;
 
 /**
  *
  * @author Taidg
  */
+@Entity
 public class ShoppingCart {
     
     private String shoppingCartID, sessionID, userID;
@@ -19,6 +21,7 @@ public class ShoppingCart {
     private HashMap<String, ProductCart> productCarts = 
             new HashMap<String, ProductCart>();
     
+    @Id
     public String getShoppingCartID(){
         return shoppingCartID;
     }

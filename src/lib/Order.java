@@ -5,11 +5,13 @@
 package lib;
 
 import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author Taidg
  */
+@Entity
 public class Order {
     
     private String orderID, userID, shipperCompany, paymentMethod, status,
@@ -21,6 +23,7 @@ public class Order {
     
     public Order() {}
     
+    @Id
     public String getOrderID(){
         return orderID;
     }

@@ -8,11 +8,13 @@ package lib;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import javax.persistence.*;
 
 /**
  *
  * @author Taidg
  */
+@Entity
 public class User {
     
     private String userID="", email="", password="", userRoleID="", firstName="", lastName="", primaryPhone="",
@@ -22,6 +24,7 @@ public class User {
     
     private HashMap<String, Order> orders = new HashMap<String, Order>();
     
+@Id    
     public String getUserID(){
         return userID;
     }
@@ -86,6 +89,7 @@ public class User {
         this.primaryAddressID = primaryAddressID;
     }
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getRegistrationDate(){
         return registerDate;
     }
@@ -93,6 +97,7 @@ public class User {
         this.registerDate = registerDate;
     }
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getLastLoginDate(){
         return lastLoginDate;
     }

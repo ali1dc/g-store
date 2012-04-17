@@ -4,15 +4,19 @@
  */
 package lib;
 
+import java.io.Serializable;
+import javax.persistence.*;
 /**
  *
  * @author Taidg
  */
+@Entity
 public class ProductOrder extends Order{
     
     private String productOrderID, productID;
     private int quantity;
     
+ 
     public String getProductOrderID(){
         return productOrderID;
     }

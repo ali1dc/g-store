@@ -6,16 +6,19 @@ package lib;
 
 import java.util.Collection;
 import java.util.HashMap;
+import javax.persistence.*;
 
 /**
  *
  * @author Taidg
  */
+@Entity
 public class Category {
     
     private String categoryID, categoryName, description;
     private HashMap<String, Product> products = new HashMap<String, Product>();
     
+    @Id
     public String getCategoryID(){
         return categoryID;
     }

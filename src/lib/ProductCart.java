@@ -5,17 +5,20 @@
 package lib;
 
 import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author Taidg
  */
+@Entity
 public class ProductCart{
     
     private String productID, shoppingCartID;
     private int quantity;
     private Date lastUpdateDate;
     
+    @Id
     public String getProductID(){
         return productID;
     }

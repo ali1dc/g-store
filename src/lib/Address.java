@@ -4,10 +4,14 @@
  */
 package lib;
 
+import javax.persistence.*;
+
 /**
  *
  * @author Taidg
  */
+
+@Entity
 public class Address {
     
     private String addressID, address1, address2, city, state;
@@ -15,6 +19,7 @@ public class Address {
     
     public Address() {}
     
+    @Id
     public String getAddressID(){
         return addressID;
     }
