@@ -18,7 +18,7 @@ import lib.*;
  *
  * @author James
  */
-public class ValidateRegistration extends HttpServlet {
+public class ValidateRegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

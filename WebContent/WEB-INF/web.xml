@@ -3,15 +3,15 @@
     <display-name>g-store</display-name>
     <servlet>
         <servlet-name>ValidateRegistration</servlet-name>
-        <servlet-class>Login.ValidateRegistration</servlet-class>
+        <servlet-class>Login.ValidateRegistrationServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>Login.Login</servlet-class>
+        <servlet-class>Login.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ValidateLogin</servlet-name>
-        <servlet-class>Login.ValidateLogin</servlet-class>
+        <servlet-class>Login.ValidateLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ValidateRegistration</servlet-name>

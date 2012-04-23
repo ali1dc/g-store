@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author James
  */
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
