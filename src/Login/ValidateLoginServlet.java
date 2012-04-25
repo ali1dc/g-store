@@ -26,8 +26,8 @@ public class ValidateLoginServlet extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String email = request.getParameter("j_username");
+        String password = request.getParameter("j_password");
         
         // Find user in database
 

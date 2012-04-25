@@ -10,7 +10,7 @@
         <!--<div id="bbb-logo"></div>-->
         <div id="header-sub-container">
             <div id="masthead">
-                <h1 class="site-title"><a href="/">Online Generic Store<sup>&reg;</sup></a></h1>
+                <h1 class="site-title"><a href="/g-store/">Generic Online Store<sup>&reg;</sup></a></h1>
                 <h2 class="bbb-location">
                     <!-- if user is not logged in -->
                     <!--<a class="find-bbb" href="#">Member Login</a>-->

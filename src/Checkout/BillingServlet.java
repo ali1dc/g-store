@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Login;
+package Checkout;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author James
  */
-public class LoginServlet extends HttpServlet {
+public class BillingServlet extends HttpServlet {
 
    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -26,8 +26,8 @@ public class LoginServlet extends HttpServlet {
         String referer = request.getHeader("Referer");
         session.setAttribute("Referer", referer);
         
-        String loginUrl = "/login.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(loginUrl);
+        String billingUrl = "/billing.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(billingUrl);
         dispatcher.forward(request, response);
     }
 
