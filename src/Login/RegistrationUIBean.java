@@ -9,7 +9,7 @@ package Login;
  * @author James
  */
 public class RegistrationUIBean {
-    private String loginMsg = "Please sign in.";
+    private String loginMsg = "Please sign in";
     
     public RegistrationUIBean()
     {
@@ -17,7 +17,7 @@ public class RegistrationUIBean {
     
     public void setLoginMsg(String name)
     {
-        this.loginMsg = "Welcome " + name + ".";
+        this.loginMsg = "Welcome " + name;
     }
     
     public String getLoginMsg()

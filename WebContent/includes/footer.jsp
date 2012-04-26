@@ -6,7 +6,7 @@
 
 <footer>
 	<div class="embeddable" id="footer">
-	    <p>&copy; 2012 Online Generic Store</p>
+	    <p>&copy; 2012 Generic Online Store</p>
 	    <p>
 	        <a href="#">Privacy Policy</a>
 	            &nbsp;|&nbsp;

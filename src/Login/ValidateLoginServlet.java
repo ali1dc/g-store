@@ -18,7 +18,7 @@ import lib.*;
  *
  * @author James
  */
-public class ValidateLogin extends HttpServlet {
+public class ValidateLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -26,8 +26,8 @@ public class ValidateLogin extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String email = request.getParameter("j_username");
+        String password = request.getParameter("j_password");
         
         // Find user in database
 
@@ -41,8 +41,8 @@ public class ValidateLogin extends HttpServlet {
         {
             // Credentials match
             RegistrationUIBean regUI = (RegistrationUIBean)session.getAttribute("regUI");
-            String fullName = user.getFirstName() + " " + user.getLastName();
-            regUI.setLoginMsg(fullName);
+            String name = user.getFirstName();
+            regUI.setLoginMsg(name);
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/");
             dispatcher.forward(request, response);
