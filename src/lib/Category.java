@@ -4,6 +4,7 @@
  */
 package lib;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import javax.persistence.*;
@@ -13,16 +14,16 @@ import javax.persistence.*;
  * @author Taidg
  */
 @Entity
-public class Category {
+public class Category implements Serializable{
     
-    private String categoryID, categoryName, description;
-    private HashMap<String, Product> products = new HashMap<String, Product>();
+    private String categoryName, description;
+    private int categoryID;
     
     @Id
-    public String getCategoryID(){
+    public int getCategoryID(){
         return categoryID;
     }
-    public void setCategoryID(String categoryID){
+    public void setCategoryID(int categoryID){
         this.categoryID = categoryID;
     }
     
@@ -40,17 +41,5 @@ public class Category {
         this.description = description;
     }
     
-    public Product getProduct(String productID){
-        return products.get(productID);
-    }
-    public Product removeProduct(String productID){
-        return products.remove(productID);
-    }
-    public void addProduct(Product product){
-        products.put(product.getProductID(), product);
-    }
-    public Collection<Product> getProducts(){
-        return products.values();
-    }
     
 }

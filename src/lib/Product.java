@@ -4,9 +4,7 @@
  */
 package lib;
 
-import java.awt.Image;
-import java.util.Collection;
-import java.util.HashMap;
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -14,21 +12,26 @@ import javax.persistence.*;
  * @author Taidg
  */
 @Entity
-public class Product {
+
+@NamedQueries({
+@NamedQuery(name="getProductFromID",
+        query="from Product where ProductID = :ProductID" ),
+@NamedQuery(name="getProductFromName",
+        query="from Product where ProductName = :ProductName")
+})
+public class Product implements Serializable{
     
-    private String productID, asin, productName, productDescription;
-    private int quantityOnHand;
+    private String asin, productName, productDescription, 
+            categoryName, indexImage, productImage;
+    private int productID, quantityInStock, indexHeight, indexWidth,
+            productHeight, productWidth;
     private double price;
-    private ItemImage indexImageInfo, productImageInfo;
-    private Image productImage;
-    private HashMap<String, Category> categories = 
-            new HashMap<String, Category>();
     
     @Id
-    public String getProductID(){
+    public int getProductID(){
         return productID;
     }
-    public void setProductID(String productID){
+    public void setProductID(int productID){
         this.productID = productID;
     }
     
@@ -53,11 +56,11 @@ public class Product {
         this.productDescription = productDescription;
     }
     
-    public int getQuantityOnHand(){
-        return quantityOnHand;
+    public int getQuantityInStock(){
+        return quantityInStock;
     }
-    public void setQuantityOnHand(int quantityOnHand){
-        this.quantityOnHand = quantityOnHand;
+    public void setQuantityInStock(int quantityInStock){
+        this.quantityInStock = quantityInStock;
     }
     
     public double getPrice(){
@@ -67,38 +70,53 @@ public class Product {
         this.price = price;
     }
     
-    public ItemImage getIndexImageInfo(){
-        return indexImageInfo;
+    public String getCategoryName(){
+        return categoryName;
     }
-    public void setIndexImageInfo(ItemImage imageInfo){
-        this.indexImageInfo = imageInfo;
-    }
-    
-    public ItemImage getProductImageInfo(){
-        return productImageInfo;
-    }
-    public void setProductImageInfo(ItemImage productImageInfo){
-        this.productImageInfo = productImageInfo;
+    public void setCategoryName(String categoryName){
+        this.categoryName = categoryName;
     }
     
-    public Image getProductImage(){
+    public String getIndexImage(){
+        return indexImage;
+    }
+    public void setIndexImage(String indexImage){
+        this.indexImage = indexImage;
+    }
+    
+    public String getProductImage(){
         return productImage;
     }
-    public void setProductImage(Image productImage){
+    public void setProductImage(String productImage){
         this.productImage = productImage;
     }
     
-    public Category getCategory(String categoryID){
-        return categories.get(categoryID);
+    public int getIndexImageHeight(){
+        return indexHeight;
     }
-    public Category removeCategory(String categoryID){
-        return categories.remove(categoryID);
+    public void setIndexImageHeight(int indexHeight){
+        this.indexHeight = indexHeight;
     }
-    public void addCategory(Category category){
-        categories.put(category.getCategoryID(), category);
+    
+    public int getIndexImageWidth(){
+        return indexHeight;
     }
-    public Collection<Category> getCategories(){
-        return categories.values();
+    public void setIndexImageWidth(int indexWidth){
+        this.indexWidth = indexWidth;
+    }
+    
+    public int getProductImageHeight(){
+        return productHeight;
+    }
+    public void setProductImageHeight(int productHeight){
+        this.productHeight = productHeight;
+    }
+    
+    public int getProductImageWidth(){
+        return productWidth;
+    }
+    public void setProductImageWidth(int productWidth){
+        this.productWidth = productWidth;
     }
     
 }

@@ -4,6 +4,7 @@
  */
 package lib;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,35 +15,37 @@ import javax.persistence.*;
  * @author Taidg
  */
 @Entity
-public class ShoppingCart {
+@Table(name="ShoppingCarts")
+public class ShoppingCart implements Serializable{
     
-    private String shoppingCartID, sessionID, userID;
+    private int shoppingCartID, sessionID, userID;
     private Date createdDate;
     private HashMap<String, ProductCart> productCarts = 
             new HashMap<String, ProductCart>();
     
     @Id
-    public String getShoppingCartID(){
+    public int getShoppingCartID(){
         return shoppingCartID;
     }
-    public void setShoppingCartID(String shoppingCartID){
+    public void setShoppingCartID(int shoppingCartID){
         this.shoppingCartID = shoppingCartID;
     }
     
-    public String getSessionID(){
+    public int getSessionID(){
         return sessionID;
     }
-    public void setSessionID(String sessionID){
+    public void setSessionID(int sessionID){
         this.sessionID = sessionID;
     }
     
-    public String getUserID(){
+    public int getUserID(){
         return userID;
     }
-    public void setUserID(String userID){
+    public void setUserID(int userID){
         this.userID = userID;
     }
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getCreatedDate(){
         return createdDate;
     }
@@ -55,9 +58,6 @@ public class ShoppingCart {
     }
     public ProductCart removeProductCart(String productID){
         return productCarts.remove(productID);
-    }
-    public void addProductCart(ProductCart productCart){
-        productCarts.put(productCart.getProductID(), productCart);
     }
     public Collection<ProductCart> getProductCarts(){
         return productCarts.values();

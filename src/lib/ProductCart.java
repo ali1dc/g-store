@@ -4,6 +4,7 @@
  */
 package lib;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -12,24 +13,24 @@ import javax.persistence.*;
  * @author Taidg
  */
 @Entity
-public class ProductCart{
+@Table(name="CartItems")
+public class ProductCart implements Serializable{
     
-    private String productID, shoppingCartID;
-    private int quantity;
+    private int productID, shoppingCartID, quantity;
     private Date lastUpdateDate;
     
     @Id
-    public String getProductID(){
+    public int getProductID(){
         return productID;
     }
-    public void setProductID(String productID){
+    public void setProductID(int productID){
         this.productID = productID;
     }
     
-    public String getShoppingCartID(){
+    public int getShoppingCartID(){
         return shoppingCartID;
     }
-    public void setShoppingCartID(String shoppingCartID){
+    public void setShoppingCartID(int shoppingCartID){
         this.shoppingCartID = shoppingCartID;
     }
     
@@ -40,6 +41,7 @@ public class ProductCart{
         this.quantity = quantity;
     }
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getLastUpdateDate(){
         return lastUpdateDate;
     }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-  <persistence-unit name="g-store" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="g-storePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="hibernate.connection.username" value=""/>
-      <property name="hibernate.connection.driver_class" value="org.sqlite.JDBC"/>
-      <property name="hibernate.connection.password" value=""/>
-      <property name="hibernate.connection.url" value="jdbc:sqlite:g-store.db"/>
+      <property name="hibernate.connection.username" value="root"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.password" value="2rectify"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/gstore"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
 </persistence>

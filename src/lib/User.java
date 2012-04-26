@@ -5,6 +5,7 @@
 package lib;
 
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,21 +15,23 @@ import javax.persistence.*;
  *
  * @author Taidg
  */
+
 @Entity
-public class User {
+@Table(name="Users")
+public class User implements Serializable{
     
-    private String userID="", email="", password="", userRoleID="", firstName="", lastName="", primaryPhone="",
-            secondaryPhone="", primaryAddressID="";
+    private String email="", password="", firstName="", lastName="", primaryPhone="",
+            secondaryPhone="";
+    private int userID, primaryAddressID, userRoleID;
     
     private Date registerDate, lastLoginDate;
     
-    private HashMap<String, Order> orders = new HashMap<String, Order>();
     
 @Id    
-    public String getUserID(){
+    public int getUserID(){
         return userID;
     }
-    public void setUserID(String userID){
+    public void setUserID(int userID){
         this.userID = userID;
     }
     
@@ -47,10 +50,10 @@ public class User {
         this.password = password;
     }
     
-    public String getUserRoleID(){
+    public int getUserRoleID(){
         return userRoleID;
     }
-    public void setUserRoleID(String userRoleID){
+    public void setUserRoleID(int userRoleID){
         this.userRoleID = userRoleID;
     }
     
@@ -82,18 +85,18 @@ public class User {
         this.secondaryPhone = secondaryPhone;
     }
     
-    public String getPrimaryAddressID(){
+    public int getPrimaryAddressID(){
         return primaryAddressID;
     }
-    public void setPrimaryAddressID(String primaryAddressID){
+    public void setPrimaryAddressID(int primaryAddressID){
         this.primaryAddressID = primaryAddressID;
     }
     
     @Temporal(javax.persistence.TemporalType.DATE)
-    public Date getRegistrationDate(){
+    public Date getRegisterDate(){
         return registerDate;
     }
-    public void setRegistrationDate(Date registerDate){
+    public void setRegisterDate(Date registerDate){
         this.registerDate = registerDate;
     }
     
@@ -104,17 +107,6 @@ public class User {
     public void setLastLoginDate(Date lastLoginDate){
         this.lastLoginDate = lastLoginDate;
     }
-    
-    public Order getOrder(String orderID){
-        return orders.get(orderID);
-    }
-    public Order removeOrder(String orderID){
-        return orders.remove(orderID);
-    }
-    public void addOrder(Order order){
-        orders.put(order.getOrderID(), order);
-    }
-    public Collection<Order> getOrders(){
-        return orders.values();
-    }
+        
+   
 }

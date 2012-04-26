@@ -52,7 +52,7 @@
             <section class="threecol main">
                 <div class="slide-block">
                     <div class="bluebox" id="featured" style="height: 
-                         <%out.print(product.getProductImageInfo().getHeight()+100);%>px;">
+                         <%out.print(product.getProductImageHeight()+100);%>px;">
                         <div class="fadein">
                             <div class="ui-tabs-panel" id="fragment-1" style="display: block;">
                                 <img alt="image for product 1" src="#">
@@ -68,13 +68,10 @@
                                     <a class="find-more" href="#">more detail</a>
                                 </div>
                             </div>
-                            <img  src="<%out.print(product.getProductImageInfo()
-                                            .getImageID());%>"
+                            <img  src="<%out.print(product.getProductImage());%>" 
                                   alt="<% out.print(product.getProductDescription());%>"
-                                  height="<%out.print(product.getProductImageInfo()
-                                          .getHeight());%>"
-                                  width="<%out.print(product.getProductImageInfo()
-                                          .getWidth());%>">
+                                  height="<%out.print(product.getProductImageHeight());%>"
+                                  width="<%out.print(product.getProductImageWidth());%>">
                             <div class="ui-tabs-panel " id="fragment-2" style="display: none;">
                                 <img alt="product 2 image" src="#">
                                 <div class="info">

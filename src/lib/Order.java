@@ -4,6 +4,7 @@
  */
 package lib;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -12,11 +13,12 @@ import javax.persistence.*;
  * @author Taidg
  */
 @Entity
-public class Order {
+public class Order implements Serializable{
     
-    private String orderID, userID, shipperCompany, paymentMethod, status,
-            billingAddressID, shippingAddressID;
-    private int orderNumber, trackingNumber;
+    private String shipperCompany, paymentMethod, status,
+            trackingNumber, orderNumber;
+    private int userID, orderID, billingAddressID,
+            shippingAddressID;
     private Date orderDate, paymentDate;
     private boolean paymentConfirmed;
     private double totalCost;
@@ -24,17 +26,17 @@ public class Order {
     public Order() {}
     
     @Id
-    public String getOrderID(){
+    public int getOrderID(){
         return orderID;
     }
-    public void setOrderID(String orderID){
+    public void setOrderID(int orderID){
         this.orderID = orderID;
     }
     
-    public String getUserID(){
+    public int getUserID(){
         return userID;
     }
-    public void setUserID(String userID){
+    public void setUserID(int userID){
         this.userID = userID;
     }
     
@@ -59,34 +61,35 @@ public class Order {
         this.status = status;
     }
     
-    public String getBillingAddressID(){
+    public int getBillingAddressID(){
         return billingAddressID;
     }
-    public void setBillingAddressID(String billingAddressID){
+    public void setBillingAddressID(int billingAddressID){
         this.billingAddressID = billingAddressID;
     }
     
-    public String getShippingAddressID(){
+    public int getShippingAddressID(){
         return shippingAddressID;
     }
-    public void setShippingAddressID(String shippingAddressID){
+    public void setShippingAddressID(int shippingAddressID){
         this.shippingAddressID = shippingAddressID;
     }
     
-    public int getOrderNumber(){
+    public String getOrderNumber(){
         return orderNumber;
     }
-    public void setOrderNumber(int orderNumber){
+    public void setOrderNumber(String orderNumber){
         this.orderNumber = orderNumber;
     }
     
-    public int getTrackingNumber(){
+    public String getTrackingNumber(){
         return trackingNumber;
     }
-    public void setTrackingNumber(int trackingNumber){
+    public void setTrackingNumber(String trackingNumber){
         this.trackingNumber = trackingNumber;
     }
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getOrderDate(){
         return orderDate;
     }
@@ -94,6 +97,7 @@ public class Order {
         this.orderDate = orderDate;
     }
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getPaymentDate(){
         return paymentDate;
     }
@@ -101,10 +105,10 @@ public class Order {
         this.paymentDate = paymentDate;
     }
     
-    public boolean getPaymentConfirmation(){
+    public boolean getIsPaymentConfirmed(){
         return paymentConfirmed;
     }
-    public void setPaymentConfirmation(boolean trueOrFalse){
+    public void setIsPaymentConfirmed(boolean trueOrFalse){
         paymentConfirmed = trueOrFalse;
     }
     

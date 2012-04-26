@@ -4,31 +4,34 @@
  */
 package lib;
 
-import javax.persistence.*;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  *
  * @author Taidg
  */
 @Entity
-public class UserRole {
+@Table(name="UserRoles")
+public class UserRole implements Serializable{
     
-    private String userRole, role;
-    
-    private static final String USER = "User";
-    private static final String ADMIN = "Admin";
+    private String role;
+    private int userRoleID;    
+
     
 @Id    
-    public String getUserRole(){
-        return userRole;
+    public int getUserRoleID(){
+        return userRoleID;
     }
-    public void setUserRole(String userRole){
-        this.userRole = userRole;
+    public void setUserRoleID(int userRoleID){
+        this.userRoleID = userRoleID;
     }
     
-    public String getRole(){
+    public String getRoleName(){
         return role;
     }
-    public void setRole(String role){
+    public void setRoleName(String role){
         this.role = role;
     }
 }

@@ -11,30 +11,41 @@ import javax.persistence.*;
  * @author Taidg
  */
 @Entity
-public class ProductOrder extends Order{
+@Table(name="OrderItems")
+public class ProductOrder implements Serializable{
     
-    private String productOrderID, productID;
-    private int quantity;
+    private int quantity, productOrderID, productID, orderID;
     
- 
-    public String getProductOrderID(){
+    @Id
+    @Column(name="OrderItemID")
+    public int getProductOrderID(){
         return productOrderID;
     }
-    public void setProductOrderID(String productOrderID){
+    public void setProductOrderID(int productOrderID){
         this.productOrderID = productOrderID;
     }
     
-    public String getProductID(){
+    @Column(name="ProductID")
+    public int getProductID(){
         return productID;
     }
-    public void setProductID(String productID){
+    public void setProductID(int productID){
         this.productID = productID;
     }
     
+    @Column(name="Quantity")
     public int getQuantity(){
         return quantity;
     }
     public void setQuantity(int quantity){
         this.quantity = quantity;
+    }
+    
+    @Column(name="OrderID")
+    public int getOrderID(){
+        return orderID;
+    }
+    public void setOrderID(int orderID){
+        this.orderID = orderID;
     }
 }
