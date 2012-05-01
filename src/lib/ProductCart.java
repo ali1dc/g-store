@@ -4,22 +4,21 @@
  */
 package lib;
 
-import java.io.Serializable;
+
 import java.util.Date;
-import javax.persistence.*;
+
 
 /**
  *
  * @author Taidg
  */
-@Entity
-@Table(name="CartItems")
-public class ProductCart implements Serializable{
+
+public class ProductCart {
     
     private int productID, shoppingCartID, quantity;
     private Date lastUpdateDate;
     
-    @Id
+    
     public int getProductID(){
         return productID;
     }
@@ -41,7 +40,7 @@ public class ProductCart implements Serializable{
         this.quantity = quantity;
     }
     
-    @Temporal(javax.persistence.TemporalType.DATE)
+ 
     public Date getLastUpdateDate(){
         return lastUpdateDate;
     }

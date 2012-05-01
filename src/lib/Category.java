@@ -4,22 +4,19 @@
  */
 package lib;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashMap;
-import javax.persistence.*;
+
 
 /**
  *
  * @author Taidg
  */
-@Entity
-public class Category implements Serializable{
+
+public class Category{
     
     private String categoryName, description;
     private int categoryID;
     
-    @Id
+    
     public int getCategoryID(){
         return categoryID;
     }

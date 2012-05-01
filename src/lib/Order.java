@@ -4,16 +4,16 @@
  */
 package lib;
 
-import java.io.Serializable;
+
 import java.util.Date;
-import javax.persistence.*;
+
 
 /**
  *
  * @author Taidg
  */
-@Entity
-public class Order implements Serializable{
+
+public class Order{
     
     private String shipperCompany, paymentMethod, status,
             trackingNumber, orderNumber;
@@ -25,7 +25,7 @@ public class Order implements Serializable{
     
     public Order() {}
     
-    @Id
+   
     public int getOrderID(){
         return orderID;
     }
@@ -89,7 +89,7 @@ public class Order implements Serializable{
         this.trackingNumber = trackingNumber;
     }
     
-    @Temporal(javax.persistence.TemporalType.DATE)
+    
     public Date getOrderDate(){
         return orderDate;
     }
@@ -97,7 +97,7 @@ public class Order implements Serializable{
         this.orderDate = orderDate;
     }
     
-    @Temporal(javax.persistence.TemporalType.DATE)
+  
     public Date getPaymentDate(){
         return paymentDate;
     }

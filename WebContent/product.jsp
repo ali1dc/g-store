@@ -13,10 +13,17 @@
 
 <%
     
-    Product product = (Product) request.getAttribute("product");
+    
     User currentUser = (User) request.getSession().getAttribute("currentUser");
     
 %>
+
+<jsp:useBean id="product" class="lib.Product" scope="request" />
+<jsp:useBean id="considerOne" class="lib.Product" scope="request" />
+<jsp:useBean id="considerTwo" class="lib.Product" scope="request" />
+<jsp:useBean id="considerThree" class="lib.Product" scope="request" />
+<jsp:useBean id="considerFour" class="lib.Product" scope="request" />
+<jsp:useBean id="considerFive" class="lib.Product" scope="request" />
 
 <body>
     <div id="page">
@@ -35,11 +42,11 @@
                     Categories:
                 </h2>
                 <ul class="nav-links">
-                    <li><a href="#">Category 1</a></li>
-                    <li><a href="#">Category 2</a></li>
-                    <li><a href="#">Category 3</a></li>
-                    <li><a href="#">Category 4</a></li>
-                    <li><a href="#">show all</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Watches</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Cameras</a></li>
                 </ul>
                 <h2 class="primary-nav-heading">
                     Today's Special:
@@ -52,26 +59,24 @@
             <section class="threecol main">
                 <div class="slide-block">
                     <div class="bluebox" id="featured" style="height: 
-                         <%out.print(product.getProductImageHeight()+100);%>px;">
+                         <jsp:getProperty name="product" property="productImageHeight"/>+100px;">
                         <div class="fadein">
                             <div class="ui-tabs-panel" id="fragment-1" style="display: block;">
-                                <img alt="image for product 1" src="#">
+                                
                                 <div class="info">
                                     <h2>
-                                        <%
-                                        out.println(product.getProductDescription());
-                                        %>
+                                        <jsp:getProperty name="product" property="productName"/>
                                     </h2>
                                     <p class="long">
-                                        this is description for product 1
+                                        <jsp:getProperty name="product" property="productDescription"/>
                                     </p>
-                                    <a class="find-more" href="#">more detail</a>
+                                    
                                 </div>
                             </div>
-                            <img  src="<%out.print(product.getProductImage());%>" 
-                                  alt="<% out.print(product.getProductDescription());%>"
-                                  height="<%out.print(product.getProductImageHeight());%>"
-                                  width="<%out.print(product.getProductImageWidth());%>">
+                            <img  src="<jsp:getProperty name="product" property="productImage"/>" 
+                                  alt="<jsp:getProperty name="product" property="productDescription"/>"
+                                  height="400"
+                                  width="300">
                             <div class="ui-tabs-panel " id="fragment-2" style="display: none;">
                                 <img alt="product 2 image" src="#">
                                 <div class="info">
@@ -119,13 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="ui-tabs-nav">
-                            <li id="nav-fragment-1" class="ui-tabs-nav-item ui-tabs-selected"><a href="#fragment-1">1</a></li>
-                            <li id="nav-fragment-2" class="ui-tabs-nav-item"><a href="#fragment-2">2</a></li>
-                            <li id="nav-fragment-3" class="ui-tabs-nav-item"><a href="#fragment-3">3</a></li>
-                            <li id="nav-fragment-4" class="ui-tabs-nav-item"><a href="#fragment-4">4</a></li>
-                            <li id="nav-fragment-5" class="ui-tabs-nav-item"><a href="#fragment-5">5</a></li>
-                        </ul>
+                        
                     </div>
                 </div>
 
@@ -137,11 +136,24 @@
                         More Items to Consider:
                     </h2>
                     <ul class="nav-links">
-                        <li><a href="#">Product 1</a></li>
-                        <li><a href="#">Product 2</a></li>
-                        <li><a href="#">Product 3</a></li>
-                        <li><a href="#">Product 4</a></li>
-                        <li><a href="#">Product 5</a></li>
+                        <li><a href="ProductServlet?productID=<jsp:getProperty name="considerOne" property="productID"/>">
+                                <jsp:getProperty name="considerOne" property="productName"/></a></li>
+                        <li><a href="ProductServlet?productID=<jsp:getProperty
+                            name="considerTwo" property="productID"/>">
+                                   <jsp:getProperty
+                            name="considerTwo" property="productName"/></a></li>
+                        <li><a href="ProductServlet?productID=<jsp:getProperty
+                            name="considerThree" property="productID"/>">
+                                   <jsp:getProperty
+                            name="considerThree" property="productName"/></a></li>
+                        <li><a href="ProductServlet?productID=<jsp:getProperty
+                            name="considerFour" property="productID"/>">
+                                   <jsp:getProperty
+                            name="considerFour" property="productName"/></a></li>
+                        <li><a href="ProductServlet?productID=<jsp:getProperty
+                            name="considerFive" property="productID"/>">
+                                   <jsp:getProperty
+                            name="considerFive" property="productName"/></a></li>
                     </ul>
                 </div>
             </aside>

@@ -5,15 +5,17 @@
 package lib;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse; 
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * 
  * @author Diarmuid
  */
 public class ProductServlet extends HttpServlet {
@@ -32,14 +34,20 @@ public class ProductServlet extends HttpServlet {
         }
         String urlToUse = "";
         String productURL = "/product.jsp";
-        String browseURL;
         
         if(request.getParameter("productID")!=null){
             String productID = request.getParameter("productID");
-            urlToUse = productURL;
+            urlToUse = productURL; 
+            productID = productID.trim();
             int id = Integer.parseInt(productID);
-            Product p = GStoreEntityManager.getInstance().getProduct(id);
+            ProductBean productBean = new ProductBean(id);
+            Product p = productBean.getProduct();
             request.setAttribute("product", p);
+            request.setAttribute("considerOne", productBean.getFirstProductToConsider());
+            request.setAttribute("considerTwo", productBean.getSecondProductToConsider());
+            request.setAttribute("considerThree", productBean.getThirdProductToConsider());
+            request.setAttribute("considerFour", productBean.getFourthProductToConsider());
+            request.setAttribute("considerFive", productBean.getFifthProductToConsider());
         }
         
         RequestDispatcher dispatcher = 

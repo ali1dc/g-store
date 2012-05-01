@@ -16,18 +16,14 @@ import javax.persistence.*;
  * @author Taidg
  */
 
-@Entity
-@Table(name="Users")
-public class User implements Serializable{
+public class User{
     
     private String email="", password="", firstName="", lastName="", primaryPhone="",
             secondaryPhone="";
     private int userID, primaryAddressID, userRoleID;
     
     private Date registerDate, lastLoginDate;
-    
-    
-@Id    
+        
     public int getUserID(){
         return userID;
     }
@@ -92,7 +88,6 @@ public class User implements Serializable{
         this.primaryAddressID = primaryAddressID;
     }
     
-    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getRegisterDate(){
         return registerDate;
     }
@@ -100,7 +95,6 @@ public class User implements Serializable{
         this.registerDate = registerDate;
     }
     
-    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getLastLoginDate(){
         return lastLoginDate;
     }

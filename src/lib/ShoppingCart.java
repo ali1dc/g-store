@@ -4,26 +4,22 @@
  */
 package lib;
 
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import javax.persistence.*;
+
 
 /**
  *
  * @author Taidg
  */
-@Entity
-@Table(name="ShoppingCarts")
-public class ShoppingCart implements Serializable{
+public class ShoppingCart{
     
     private int shoppingCartID, sessionID, userID;
     private Date createdDate;
     private HashMap<String, ProductCart> productCarts = 
             new HashMap<String, ProductCart>();
     
-    @Id
+   
     public int getShoppingCartID(){
         return shoppingCartID;
     }
@@ -45,7 +41,6 @@ public class ShoppingCart implements Serializable{
         this.userID = userID;
     }
     
-    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getCreatedDate(){
         return createdDate;
     }
@@ -59,7 +54,5 @@ public class ShoppingCart implements Serializable{
     public ProductCart removeProductCart(String productID){
         return productCarts.remove(productID);
     }
-    public Collection<ProductCart> getProductCarts(){
-        return productCarts.values();
-    }
+    
 }

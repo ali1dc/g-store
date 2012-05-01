@@ -4,25 +4,21 @@
  */
 package lib;
 
-import java.io.Serializable;
-import javax.persistence.*;
+
+
 
 /**
  *
  * @author Taidg
  */
 
-@Entity
-@Table(name="Addresses")
-public class Address implements Serializable{
+public class Address{
     
     private String  address1, address2, city, state, postalCode;
     private int addressID;
     
     public Address() {}
     
-    @Id
-    @Column(name="AddressID")
     public int getAddressID(){
         return addressID;
     }
@@ -30,7 +26,6 @@ public class Address implements Serializable{
         this.addressID = addressID;
     }
     
-    @Column(name="Address1")
     public String getAddressOne(){
         return address1;
     }
@@ -38,7 +33,6 @@ public class Address implements Serializable{
         address1 = addressOne;
     }
     
-    @Column(name="Address2")
     public String getAddressTwo(){
         return address2;
     }
@@ -46,7 +40,6 @@ public class Address implements Serializable{
         address2 = addressTwo;
     }
     
-    @Column(name="City")
     public String getCity(){
         return city;
     }
@@ -54,7 +47,6 @@ public class Address implements Serializable{
         this.city =  city;
     }
     
-    @Column(name="State")
     public String getState(){
         return state;
     }
@@ -62,7 +54,6 @@ public class Address implements Serializable{
         this.state = state;
     }
     
-    @Column(name="PostalCode")
     public String getPostalCode(){
         return postalCode;
     }

@@ -4,22 +4,14 @@
  */
 package lib;
 
-import java.io.Serializable;
-import javax.persistence.*;
+
 
 /**
  *
  * @author Taidg
  */
-@Entity
 
-@NamedQueries({
-@NamedQuery(name="getProductFromID",
-        query="from Product where ProductID = :ProductID" ),
-@NamedQuery(name="getProductFromName",
-        query="from Product where ProductName = :ProductName")
-})
-public class Product implements Serializable{
+public class Product{
     
     private String asin, productName, productDescription, 
             categoryName, indexImage, productImage;
@@ -27,7 +19,7 @@ public class Product implements Serializable{
             productHeight, productWidth;
     private double price;
     
-    @Id
+    
     public int getProductID(){
         return productID;
     }
@@ -99,7 +91,7 @@ public class Product implements Serializable{
     }
     
     public int getIndexImageWidth(){
-        return indexHeight;
+        return indexWidth;
     }
     public void setIndexImageWidth(int indexWidth){
         this.indexWidth = indexWidth;

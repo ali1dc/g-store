@@ -3,24 +3,16 @@
  * and open the template in the editor.
  */
 package lib;
-
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 /**
  *
  * @author Taidg
  */
-@Entity
-@Table(name="UserRoles")
-public class UserRole implements Serializable{
+
+public class UserRole {
     
     private String role;
     private int userRoleID;    
-
-    
-@Id    
+  
     public int getUserRoleID(){
         return userRoleID;
     }

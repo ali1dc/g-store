@@ -4,20 +4,16 @@
  */
 package lib;
 
-import java.io.Serializable;
-import javax.persistence.*;
+
 /**
  *
  * @author Taidg
  */
-@Entity
-@Table(name="OrderItems")
-public class ProductOrder implements Serializable{
+
+public class ProductOrder {
     
     private int quantity, productOrderID, productID, orderID;
     
-    @Id
-    @Column(name="OrderItemID")
     public int getProductOrderID(){
         return productOrderID;
     }
@@ -25,7 +21,6 @@ public class ProductOrder implements Serializable{
         this.productOrderID = productOrderID;
     }
     
-    @Column(name="ProductID")
     public int getProductID(){
         return productID;
     }
@@ -33,7 +28,6 @@ public class ProductOrder implements Serializable{
         this.productID = productID;
     }
     
-    @Column(name="Quantity")
     public int getQuantity(){
         return quantity;
     }
@@ -41,7 +35,6 @@ public class ProductOrder implements Serializable{
         this.quantity = quantity;
     }
     
-    @Column(name="OrderID")
     public int getOrderID(){
         return orderID;
     }
