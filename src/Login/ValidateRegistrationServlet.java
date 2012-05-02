@@ -21,8 +21,9 @@ import lib.UserRole;
  * @author James
  */
 public class ValidateRegistrationServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-    @Override
+	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         

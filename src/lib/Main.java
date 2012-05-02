@@ -4,7 +4,7 @@
  */
 package lib;
 
-import javax.persistence.EntityManager;
+//import javax.persistence.EntityManager;
 
 /**
  *

@@ -5,16 +5,7 @@
 package lib;
 
 
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import javax.persistence.*;
-
-/**
- *
- * @author Taidg
- */
 
 public class User{
     
@@ -112,6 +103,4 @@ public class User{
     public void setLastLoginDate(Date lastLoginDate){
         this.lastLoginDate = lastLoginDate;
     }
-        
-   
 }

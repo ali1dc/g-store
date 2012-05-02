@@ -10,9 +10,13 @@
     <link href="css/base.css" rel="stylesheet" type="text/css" />
     <link href="css/item.css" rel="stylesheet" type="text/css" />
     <link href="css/jquery-ui.custom.css" rel="stylesheet" type="text/css"/>
+    <link href="js/plugins/reveal/reveal.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/plugins/reveal/jquery.reveal.js"></script>    
     <script type="text/javascript" src="js/slide.js"></script>
+	<script type="text/javascript" src="js/gstore-jquery.js"></script>
 
 </head>
 
@@ -31,31 +35,7 @@ Product five = wb.getShowFive();
         <jsp:include page="includes/header.jsp"/>
         <!-- End of Header -->
         <div id="section">
-            <nav id="primary-nav" class="embeddable primary-nav">
-                <h2 class="primary-nav-heading">
-                    Cart Information:
-                </h2>
-                <ul class="nav-links">
-                    <li>No Item in Cart!</li>
-                </ul>
-                <h2 class="primary-nav-heading">
-                    Categories:
-                </h2>
-                <ul class="nav-links">
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">Watches</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Cameras</a></li>
-                </ul>
-                <h2 class="primary-nav-heading">
-                    Today's Special:
-                </h2>
-                <ul class="nav-links">
-                    <li><a href="#">today's special product</a></li>
-                    <li><a href="/specials/">special items</a></li>
-                </ul>
-            </nav>
+			<jsp:include page="includes/nav-left.jsp"/>
             <section class="threecol main">
                 <div class="slide-block">
                         <div class="bluebox" id="featured" style="height: 500px;">
@@ -176,20 +156,7 @@ Product five = wb.getShowFive();
 
                 
             </section>
-            <aside id="secondary-content" class="right sidebar">
-                <div>
-                    <h2 class="primary-nav-heading">
-                        More Items to Consider:
-                    </h2>
-                    <ul class="nav-links">
-                        <li><a href="ProductServlet?productID=1">Product 1</a></li>
-                        <li><a href="ProductServlet?productID=2">Product 2</a></li>
-                        <li><a href="ProductServlet?productID=3">Product 3</a></li>
-                        <li><a href="ProductServlet?productID=4">Product 4</a></li>
-                        <li><a href="ProductServlet?productID=5">Product 5</a></li>
-                    </ul>
-                </div>
-            </aside>
+            <jsp:include page="includes/nav-shopping-cart.jsp"/>
         </div>
         <!-- Footer -->
         <jsp:include page="includes/footer.jsp"/>

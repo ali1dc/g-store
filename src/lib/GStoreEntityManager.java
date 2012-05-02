@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 package lib;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.*;
+//
+//import javax.persistence.EntityManager;
+//import javax.persistence.EntityManagerFactory;
+//import javax.persistence.*;
 
 /**
  *
@@ -14,7 +14,7 @@ import javax.persistence.*;
  */
 public class GStoreEntityManager {
     
-    private EntityManagerFactory emf;
+/**    private EntityManagerFactory emf;
     private EntityManager em;
     private static GStoreEntityManager gsem;
     
@@ -109,5 +109,5 @@ public class GStoreEntityManager {
         em.remove(shoppingcartx); 
         em.getTransaction().commit();
     }
-    
+    **/
 }

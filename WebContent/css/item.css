@@ -106,16 +106,7 @@
   font-family: Georgia, serif;
   font-size: 1.1em;
   line-height: 1.2em; }
-/*
-#featured .info p.short {
-  display: block; }
 
-#featured .info p.long {
-  display: block; }
-
-#featured .info .find-more {
-  display: none; }
-*/  
 #featured .ui-tabs-panel img {
   display: block; }  
 
@@ -150,7 +141,75 @@
 .seg-block-R {
     margin-left: 1.51515%;
 }
+.checkout-input {
+    border: 3px double #D5E5E9;
+    box-shadow: 0 2px 5px rgba(200, 200, 200, 0.3) inset;
+    border-radius: 7px 7px 7px 7px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0;
+    outline: medium none;
+    padding: 3px 4px;
+    vertical-align: middle;
+    width: 50%;
+}
+
+#order-summary {
+	font-size: 1.2em;
+}
+
+#order-summary .item-row {
+	width:250px;
+}
+#order-summary .quantity-row {
+	width:60px;
+}
+#order-summary .price-row {
+	width:100px;
+	text-align:right;
+}
+#order-summary .update-row {
+	width:60px;
+}
+#order-summary .delete-row {
+	width:60px;
+}
+#order-summary .quantity-row-input {
+	width:50px;
+}
+#order-summary td.footer {
+	font-weight: bold;
+	font-size:14px;
+	text-align: right;
+}
+#order-summary td.price {
+	
+	font-size:14px;
+	text-align: right;
+}
 
 
+a.delete {
+    color: #9E2B1E;
+}
 
+#order-summary-table {
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 20px;
+    width: 545px;
+}
+
+#order-summary-table td {
+    padding: 9px 8px 0;
+}
+
+#order-summary-table th {
+    border-bottom: 2px solid #67812D;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 8px;
+}
 

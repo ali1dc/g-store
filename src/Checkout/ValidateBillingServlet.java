@@ -20,8 +20,9 @@ import lib.User;
  * @author James
  */
 public class ValidateBillingServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-    @Override
+	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -48,8 +49,8 @@ public class ValidateBillingServlet extends HttpServlet {
         {
             user.setPrimaryPhone(phone);
 
-            address.setAddressOne(address1);
-            address.setAddressTwo(address2);
+            address.setAddress1(address1);
+            address.setAddress2(address2);
             address.setCity(city);
             address.setState(state);
             if (postalCode != null)

@@ -180,7 +180,8 @@ body {
 /* --- Main Content --- */
 .primary-heading {
   margin: 0 0 20px;
-  color: #67812D; }
+  color: #67812D; 
+  font-weight: 100;}
 
 .primary-nav-heading {
   color: #66793A;
@@ -296,6 +297,14 @@ footer {
 .red-btn:active {
   color: #eee;
   text-decoration: none; }
+
+.loading-btn, .loading-btn:hover, .loading-btn:active {
+    background: -moz-linear-gradient(center top , #CCCCCC 0%, #B7B7B7 55%, #B7B7B7 60%, #B7B7B7 100%) repeat scroll 0 0 transparent;
+    border-color: #B7B7B7;
+    color: #FFFFFF;
+    cursor: wait;
+}
+
 
 .rss-link {
   display: inline-block;
@@ -1252,7 +1261,14 @@ label.error {
   margin: .5em 0;
   padding: 0 0 0 10px;
   color: #9E2B1E;
-  font-weight: 100; }
+  font-weight: 100; 
+  display: inline;}
+input.error {
+	border: 3px double ##9E2B1E;
+    box-shadow: 0 2px 5px #9E2B1E inset; }  
+select.error {
+	border: 3px double ##9E2B1E;
+    box-shadow: 0 2px 5px #9E2B1E inset; }  
 
 .counter {
   margin: .5em 5% .5em 0;
