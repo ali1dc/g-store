@@ -14,6 +14,9 @@
 <%
     
     User currentUser = (User) request.getSession().getAttribute("currentUser");
+    int widthAdjust = 400;
+    
+    
     
 %>
 
@@ -23,6 +26,16 @@
 <jsp:useBean id="considerThree" class="lib.Product" scope="request" />
 <jsp:useBean id="considerFour" class="lib.Product" scope="request" />
 <jsp:useBean id="considerFive" class="lib.Product" scope="request" />
+
+
+<%
+    if(product.getProductID()>30){
+        widthAdjust = widthAdjust + 125;
+    }
+    if(product.getProductID()>40){
+        widthAdjust = widthAdjust - 75;
+    }
+%>
 
 <body>
     <div id="page">
@@ -88,7 +101,7 @@
                             <img  src="<jsp:getProperty name="product" property="productImage"/>" 
                                   alt="<jsp:getProperty name="product" property="productDescription"/>"
                                   height="400"
-                                  width="300">
+                                  width="<%out.println(widthAdjust);%>">
                             <div class="ui-tabs-panel " id="fragment-2" style="display: none;">
                                 <img alt="product 2 image" src="#">
                                 <div class="info">
