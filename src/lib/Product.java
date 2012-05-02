@@ -4,6 +4,8 @@
  */
 package lib;
 
+import java.text.DecimalFormat;
+
 
 
 /**
@@ -19,6 +21,7 @@ public class Product{
             productHeight, productWidth;
     private double price;
     
+    DecimalFormat money = new DecimalFormat("$0.00");
     
     public int getProductID(){
         return productID;
@@ -109,6 +112,10 @@ public class Product{
     }
     public void setProductImageWidth(int productWidth){
         this.productWidth = productWidth;
+    }
+    
+    public String getMoneyMF(){
+        return money.format(price);
     }
     
 }

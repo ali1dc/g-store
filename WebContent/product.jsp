@@ -13,7 +13,6 @@
 
 <%
     
-    
     User currentUser = (User) request.getSession().getAttribute("currentUser");
     
 %>
@@ -66,11 +65,24 @@
                                 <div class="info">
                                     <h2>
                                         <jsp:getProperty name="product" property="productName"/>
+                                        
                                     </h2>
-                                    <p class="long">
+                                    <h4>
                                         <jsp:getProperty name="product" property="productDescription"/>
-                                    </p>
-                                    
+                                        
+                                        <br>
+                                        <table>
+                                            <tr>
+                                                <td><jsp:getProperty name="product" property="moneyMF"/></td>
+                                                <td>
+                                                    <form name="" action="">
+                                                        <input type="submit" value="Add to Cart">
+                                                    </form>
+                                                </td> 
+                                            </tr>
+                                        </table>
+                                    </h4>
+                                        
                                 </div>
                             </div>
                             <img  src="<jsp:getProperty name="product" property="productImage"/>" 
