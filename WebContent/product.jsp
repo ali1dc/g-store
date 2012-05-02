@@ -9,32 +9,18 @@
 	<title>Online Generic Store : Product Page : </title>
     <link href="css/base.css" rel="stylesheet" type="text/css" />
     <link href="css/item.css" rel="stylesheet" type="text/css" />
+    <link href="js/plugins/reveal/reveal.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/plugins/reveal/jquery.reveal.js"></script>    
+    <script type="text/javascript" src="js/plugins/validate/jquery.validate.min.js"></script>    
+    <script type="text/javascript" src="js/gstore-jquery.js"></script>
 </head>
 
 <%
-    
+    Product product = (Product) request.getAttribute("product");
     User currentUser = (User) request.getSession().getAttribute("currentUser");
-    int widthAdjust = 400;
-    
-    
-    
-%>
-
-<jsp:useBean id="product" class="lib.Product" scope="request" />
-<jsp:useBean id="considerOne" class="lib.Product" scope="request" />
-<jsp:useBean id="considerTwo" class="lib.Product" scope="request" />
-<jsp:useBean id="considerThree" class="lib.Product" scope="request" />
-<jsp:useBean id="considerFour" class="lib.Product" scope="request" />
-<jsp:useBean id="considerFive" class="lib.Product" scope="request" />
-
-
-<%
-    if(product.getProductID()>30){
-        widthAdjust = widthAdjust + 125;
-    }
-    if(product.getProductID()>40){
-        widthAdjust = widthAdjust - 75;
-    }
 %>
 
 <body>
@@ -43,149 +29,24 @@
         <jsp:include page="includes/header.jsp"/>
         <!-- End of Header -->
         <div id="section">
-            <nav id="primary-nav" class="embeddable primary-nav">
-                <h2 class="primary-nav-heading">
-                    Cart Information:
-                </h2>
-                <ul class="nav-links">
-                    <li>No Item in Cart!</li>
-                </ul>
-                <h2 class="primary-nav-heading">
-                    Categories:
-                </h2>
-                <ul class="nav-links">
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">Watches</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Cameras</a></li>
-                </ul>
-                <h2 class="primary-nav-heading">
-                    Today's Special:
-                </h2>
-                <ul class="nav-links">
-                    <li><a href="#">today's special product</a></li>
-                    <li><a href="/specials/">special items</a></li>
-                </ul>
-            </nav>
+			<jsp:include page="includes/nav-left.jsp"/>
             <section class="threecol main">
-                <div class="slide-block">
-                    <div class="bluebox" id="featured" style="height: 
-                         <jsp:getProperty name="product" property="productImageHeight"/>+100px;">
-                        <div class="fadein">
-                            <div class="ui-tabs-panel" id="fragment-1" style="display: block;">
-                                
-                                <div class="info">
-                                    <h2>
-                                        <jsp:getProperty name="product" property="productName"/>
-                                        
-                                    </h2>
-                                    <h4>
-                                        <jsp:getProperty name="product" property="productDescription"/>
-                                        
-                                        <br>
-                                        <table>
-                                            <tr>
-                                                <td><jsp:getProperty name="product" property="moneyMF"/></td>
-                                                <td>
-                                                    <form name="" action="">
-                                                        <input type="submit" value="Add to Cart">
-                                                    </form>
-                                                </td> 
-                                            </tr>
-                                        </table>
-                                    </h4>
-                                        
-                                </div>
-                            </div>
-                            <img  src="<jsp:getProperty name="product" property="productImage"/>" 
-                                  alt="<jsp:getProperty name="product" property="productDescription"/>"
-                                  height="400"
-                                  width="<%out.println(widthAdjust);%>">
-                            <div class="ui-tabs-panel " id="fragment-2" style="display: none;">
-                                <img alt="product 2 image" src="#">
-                                <div class="info">
-                                    <h2>
-                                        <a href="#">product 2 title</a>
-                                    </h2>
-                                    <p class="long">
-                                        this is description for product 1
-                                    </p>
-                                    <a class="find-more" href="#">more detail</a>
-                                </div>
-                            </div>
-                            <div class="ui-tabs-panel " id="fragment-3" style="display: none;">
-                                <img alt="product 3 image" src="#">
-                                <div class="info">
-                                    <h2>
-                                        <a href="#">product 3 title</a>
-                                    </h2>
-                                    <p class="long">
-                                        this is description for product 1
-                                    </p>
-                                    <a class="find-more" href="#">more detail</a>
-                                </div>
-                            </div>
-                            <div class="ui-tabs-panel " id="fragment-4" style="display: none;">
-                                <img alt="product 4 image" src="#">
-                                <div class="info">
-                                    <h2>
-                                        <a href="#">product 4 detail</a></h2>
-                                    <p class="long">
-                                        this is description for product 1
-                                    </p>
-                                    <a class="find-more" href="#">more detail</a>
-                                </div>
-                            </div>
-                            <div class="ui-tabs-panel " id="fragment-5" style="display: none;">
-                                <img alt="product 5 image" src="#">
-                                <div class="info">
-                                    <h2>
-                                        <a href="#">product 5 title</a></h2>
-                                    <p class="long">
-                                        this is description for product 1
-                                    </p>
-                                    <a class="find-more" href="#">more detail</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                
+	            <div class="bluebox" style="height:500px">
+	            	<img style="float:left;margin-right:10px" alt="<%out.println(product.getProductName());%>" src="<%out.print(product.getProductImage());%>" />
+	              <div class="info">
+	                  <h2><%out.println(product.getProductName());%></h2>
+	                  <br />
+	                  <p class="long">
+	                      <% out.println(product.getProductDescription()); %>
+	                  </p>
+	                  <a class="green-btn find-more add-to-cart" style="float:right" id="<%out.print(product.getProductID());%>" href="javascript:void(0)">Add to cart</a>
+	              </div>
+	            </div>
             </section>
-            <aside id="secondary-content" class="right sidebar">
-                <div>
-                    <h2 class="primary-nav-heading">
-                        More Items to Consider:
-                    </h2>
-                    <ul class="nav-links">
-                        <li><a href="ProductServlet?productID=<jsp:getProperty name="considerOne" property="productID"/>">
-                                <jsp:getProperty name="considerOne" property="productName"/></a></li>
-                        <li><a href="ProductServlet?productID=<jsp:getProperty
-                            name="considerTwo" property="productID"/>">
-                                   <jsp:getProperty
-                            name="considerTwo" property="productName"/></a></li>
-                        <li><a href="ProductServlet?productID=<jsp:getProperty
-                            name="considerThree" property="productID"/>">
-                                   <jsp:getProperty
-                            name="considerThree" property="productName"/></a></li>
-                        <li><a href="ProductServlet?productID=<jsp:getProperty
-                            name="considerFour" property="productID"/>">
-                                   <jsp:getProperty
-                            name="considerFour" property="productName"/></a></li>
-                        <li><a href="ProductServlet?productID=<jsp:getProperty
-                            name="considerFive" property="productID"/>">
-                                   <jsp:getProperty
-                            name="considerFive" property="productName"/></a></li>
-                    </ul>
-                </div>
-            </aside>
+            <jsp:include page="includes/nav-shopping-cart.jsp"/>
         </div>
-        <!-- Footer -->
+        
         <jsp:include page="includes/footer.jsp"/>
-        <!-- End of Footer -->
     </div>
 </body>
 </html>

@@ -4,17 +4,9 @@
  */
 package lib;
 
-
-
-
-/**
- *
- * @author Taidg
- */
-
-public class Address{
+public class Address {
     
-    private String  address1, address2, city, state, postalCode;
+    private String  recipient, address1, address2, city, state, postalCode, phone, email;
     private int addressID;
     
     public Address() {}
@@ -26,18 +18,34 @@ public class Address{
         this.addressID = addressID;
     }
     
-    public String getAddressOne(){
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getRecipient() {
+		return recipient;
+	}
+
+	public void setRecipient(String title) {
+		this.recipient = title;
+	}
+
+    public String getAddress1(){
         return address1;
     }
-    public void setAddressOne(String addressOne){
-        address1 = addressOne;
+    public void setAddress1(String address1){
+        this.address1 = address1;
     }
     
-    public String getAddressTwo(){
+    public String getAddress2(){
         return address2;
     }
-    public void setAddressTwo(String addressTwo){
-        address2 = addressTwo;
+    public void setAddress2(String address2){
+        this.address2 = address2;
     }
     
     public String getCity(){
@@ -60,4 +68,12 @@ public class Address{
     public void setPostalCode(String postalCode){
         this.postalCode = postalCode;
     }
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }
