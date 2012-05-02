@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import lib.*;
+import lib.GStoreDataAccess;
+import lib.User;
 
 /**
  *
@@ -29,29 +30,30 @@ public class ValidateLoginServlet extends HttpServlet {
         String email = request.getParameter("j_username");
         String password = request.getParameter("j_password");
         
-        // Find user in database
-
-        // Until we have a working database, test request credentials against session credentials
-        User user = (User)session.getAttribute("user");
-
-        if ((user != null) &&
-            (user.getFirstName().equals("") == false) &&
-            (email.equals(user.getEmail()) == true) &&
-            (password.equals(user.getPassword()) == true))
+        GStoreDataAccess gsda = GStoreDataAccess.getInstance();
+        User user = gsda.getUser(email, password);
+        
+        if (user != null)
         {
             // Credentials match
             RegistrationUIBean regUI = (RegistrationUIBean)session.getAttribute("regUI");
+            session.setAttribute("user", user);
+            session.setAttribute("loggedIn", true);
             String name = user.getFirstName();
             regUI.setLoginMsg(name);
+            session.setAttribute("regUI", regUI);
+            
+            TrackingCookie.setCookie(response, user.getEmail());
+            TrackingCookie.getCookie(request);
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout/index.html");
             dispatcher.forward(request, response);
         }
         else
         {
             // Credentials don't match
             PrintWriter out = response.getWriter();
-            out.println("<h1>Invalid log in creditials.</h1>");
+            out.println("<h1>Invalid log in creditials.</h1><p>Please go back and try again.</p>");
             out.close();
         }
     }

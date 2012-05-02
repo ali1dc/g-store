@@ -23,6 +23,17 @@ public class User{
     private int userID, primaryAddressID, userRoleID;
     
     private Date registerDate, lastLoginDate;
+    
+    public User()
+    {
+    }
+    
+    public User(String firstName, String lastName, String email)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
         
     public int getUserID(){
         return userID;

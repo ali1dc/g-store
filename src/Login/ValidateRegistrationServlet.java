@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import lib.GStoreDataAccess;
 import lib.User;
+import lib.UserRole;
 
 /**
  *
@@ -25,12 +27,10 @@ public class ValidateRegistrationServlet extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        User user = new User();
 
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
         String email = request.getParameter("email");
-        String confirmEmail = request.getParameter("confirmEmail");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
         
@@ -39,13 +39,6 @@ public class ValidateRegistrationServlet extends HttpServlet {
             // Missing information
             PrintWriter out = response.getWriter();
             out.println("<h1>Please fill in first name, last name, email, and password.</h1>");
-            out.close();
-        }
-        else if (email.equals(confirmEmail) == false)
-        {
-            // Passwords don't match
-            PrintWriter out = response.getWriter();
-            out.println("<h1>You entered two different email addresses.</h1>");
             out.close();
         }
         else if (password.equals(confirmPassword) == false)
@@ -57,15 +50,30 @@ public class ValidateRegistrationServlet extends HttpServlet {
         }
         else
         {
+            User user = new User();
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setEmail(email);
             user.setPassword(password);
+            
+            UserRole role = new UserRole();
+            role.setEmail(email);
+            role.setRoleName("customer");
 
+            GStoreDataAccess gsda = GStoreDataAccess.getInstance();
+            gsda.setUser(user);
+            gsda.setRole(role);
+            
             session.setAttribute("user", user);
+            session.setAttribute("loggedIn", true);
+            RegistrationUIBean regUI = (RegistrationUIBean)session.getAttribute("regUI");
+            String name = user.getFirstName();
+            regUI.setLoginMsg(name);
+
+            TrackingCookie.setCookie(response, user.getEmail());
 
             // Redirect to next page.
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout/index.html");
             dispatcher.forward(request, response);
         }
     }

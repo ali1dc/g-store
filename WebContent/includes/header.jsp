@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Apr 10, 2012, 3:46:15 PM
-    Author     : Diarmuid
---%>
-
 <header>
     <jsp:useBean id="regUI" scope="session" class="Login.RegistrationUIBean"/>
     <div id="header-content" class="embeddable">
@@ -15,7 +9,10 @@
                     <!-- if user is not logged in -->
                     <!--<a class="find-bbb" href="#">Member Login</a>-->
                     <!-- else user is logged in -->
-                    <label class="find-bbb"><a href="login"><jsp:getProperty name="regUI" property="loginMsg"/></a></label>
+                    
+                    <label class="find-bbb">
+                        <a href="https://127.0.0.1:8443/g-store/login"><jsp:getProperty name="regUI" property="loginMsg"/></a>
+                    </label>
                 </h2>
             </div>
             <nav id="global-nav">

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import lib.GStoreDataAccess;
+import lib.User;
 
 /**
  *
@@ -20,14 +22,30 @@ public class LoginServlet extends HttpServlet {
 
    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+            throws ServletException, IOException
+    {
         HttpSession session = request.getSession();
-        String referer = request.getHeader("Referer");
-        session.setAttribute("Referer", referer);
+        Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        //response.setParameter("jsessionid"
         
-        String loginUrl = "/login.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(loginUrl);
+        String url = "/login.jsp";
+        
+        if (loggedIn != null && loggedIn == true)
+        {
+            // User is logged in. Assumed to be checking out
+            url = "/checkout/index.html";
+            User user = (User) session.getAttribute("user");
+            if (user != null)
+            {
+                TrackingCookie.setCookie(response, user.getEmail());
+            }
+        }
+        else
+        {
+            TrackingCookie.getCookie(request);
+        }
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
 

@@ -9,7 +9,7 @@ package Login;
  * @author James
  */
 public class RegistrationUIBean {
-    private String loginMsg = "Please sign in";
+    private String loginMsg = "SIGN IN";
     
     public RegistrationUIBean()
     {

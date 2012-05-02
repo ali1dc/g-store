@@ -11,6 +11,7 @@ package lib;
 public class UserRole {
     
     private String role;
+    private String email;
     private int userRoleID;    
   
     public int getUserRoleID(){
@@ -25,5 +26,12 @@ public class UserRole {
     }
     public void setRoleName(String role){
         this.role = role;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

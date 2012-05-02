@@ -4,6 +4,7 @@
  */
 package lib;
 
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Collection;
 import java.util.HashMap;
@@ -20,10 +21,22 @@ public class GStoreDataAccess {
     
     
     private GStoreDataAccess(){
-       driver = "com.mysql.jdbc.Driver";
-       url = "jdbc:mysql://localhost:3306/gstore";
-       user = "root";
-       password = "2rectify";
+        driver = "com.mysql.jdbc.Driver";
+        
+        // Remote database
+        url = "jdbc:mysql://aligstore.db.7759592.hostedresource.com:3306/aligstore";
+        user = "aligstore";
+        password = "a+G[pv.R[_7@OF";
+        
+        // Taidg's local database
+        //url = "jdbc:mysql://localhost:3306/gstore";
+        //user = "root";
+        //password = "2rectify";
+        
+        // James's local database
+        //url = "jdbc:mysql://localhost:3306/gstore";
+        //user = "root";
+        //password = "";
     }
     
     public static GStoreDataAccess getInstance(){
@@ -111,5 +124,113 @@ public class GStoreDataAccess {
         return tempMap.values();
     }
     
+    public User getUser(String email, String password)
+    {
+        String query = "SELECT first_name, last_name, email " + 
+                       "FROM users " + 
+                       "WHERE email = ? AND password = SHA1(?);";
+        User user =  null;
+        
+        Connection connection = getConnection();
+        
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next() == true)
+            {
+                user = new User(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3));
+            }
+            
+            preparedStatement.close();
+            resultSet.close();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        
+        return user;
+    }
     
+    public User getUser(String email)
+    {
+        String query = "SELECT first_name, last_name, email " + 
+                       "FROM users " + 
+                       "WHERE email = ?;";
+        User user =  null;
+        
+        Connection connection = getConnection();
+        
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            preparedStatement.setString(1, email);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next() == true)
+            {
+                user = new User(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3));
+            }
+            
+            preparedStatement.close();
+            resultSet.close();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        
+        return user;
+    }
+    
+    public void setUser(User user)
+    {
+        String query = "INSERT INTO users(first_name, last_name, email, password)" +
+                       "VALUES(?, ?, ?, SHA1(?));";
+        
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
+            
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void setRole(UserRole role)
+    {
+        String query = "INSERT INTO roles(email, role) VALUES(?, ?);";
+        
+        Connection connection = getConnection();
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            preparedStatement.setString(1, role.getEmail());
+            preparedStatement.setString(2, role.getRoleName());
+            
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }

@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/g-store"/>
+<Context antiJARLocking="true" path="/g-store">
+    <Realm
+        className="org.apache.catalina.realm.JDBCRealm"
+        debug="99"
+        driverName="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://aligstore.db.7759592.hostedresource.com:3306/aligstore"
+        connectionName="aligstore"
+        connectionPassword="a+G[pv.R[_7@OF"
+        digest="SHA-1"
+        userTable="users"
+        userNameCol="email"
+        userCredCol="password"
+        userRoleTable="roles"
+        roleNameCol="role" />
+</Context>
