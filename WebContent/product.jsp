@@ -80,13 +80,13 @@
                                         <jsp:getProperty name="product" property="productName"/>
                                         
                                     </h2>
-                                    <h4>
-                                        <jsp:getProperty name="product" property="productDescription"/>
+                                    
+                                        <h4><jsp:getProperty name="product" property="productDescription"/></h4>
                                         
                                         <br>
                                         <table>
                                             <tr>
-                                                <td><jsp:getProperty name="product" property="moneyMF"/></td>
+                                                <td><h4><jsp:getProperty name="product" property="moneyMF"/></h4></td>
                                                 <td>
                                                     <form name="" action="">
                                                         <input type="submit" value="Add to Cart">
@@ -94,7 +94,7 @@
                                                 </td> 
                                             </tr>
                                         </table>
-                                    </h4>
+                                    
                                         
                                 </div>
                             </div>
