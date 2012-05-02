@@ -28,20 +28,21 @@ public class GStoreDataAccess {
          * We should move this to web.xml
          * 
         // Taidg's local database
+        */
         url = "jdbc:mysql://localhost:3306/gstore";
         user = "root";
-        password = "2rectify";
-        
+        password = "";
+        /*
          James's local database
         url = "jdbc:mysql://localhost:3306/gstore";
         user = "root";
         password = "";
         **/  
         // Ali's local 
-		url = "jdbc:mysql://localhost:3306/gstore";
+		/*url = "jdbc:mysql://localhost:3306/gstore";
 		user = "root";
 		password = "password";
-          
+                * */
         
     }
     

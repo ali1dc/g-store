@@ -27,7 +27,7 @@
     
 %>
 
-<jsp:useBean id="product" class="lib.Product" scope="request" />
+
 <jsp:useBean id="considerOne" class="lib.Product" scope="request" />
 <jsp:useBean id="considerTwo" class="lib.Product" scope="request" />
 <jsp:useBean id="considerThree" class="lib.Product" scope="request" />
@@ -54,38 +54,11 @@
             <section class="threecol main">
 
                 <div class="slide-block">
-                    <div class="bluebox" id="featured" style="height: 
-                         <jsp:getProperty name="product" property="productImageHeight"/>+100px;">
+                    <div class="bluebox" id="featured" 
                         <div class="fadein">
                             <div class="ui-tabs-panel" id="fragment-1" style="display: block;">
                                 
-                                <div class="info">
-                                    <h2>
-                                        <jsp:getProperty name="product" property="productName"/>
-                                        
-                                    </h2>
-                                    
-                                        <h4><jsp:getProperty name="product" property="productDescription"/></h4>
-                                        
-                                        <br>
-                                        <table>
-                                            <tr>
-                                                <td><h4><jsp:getProperty name="product" property="moneyMF"/></h4></td>
-                                                <td>
-                                                    <form name="" action="">
-                                                        <input type="submit" value="Add to Cart">
-                                                    </form>
-                                                </td> 
-                                            </tr>
-                                        </table>
-                                    
-                                        
-                                </div>
-                            </div>
-                            <img  src="<jsp:getProperty name="product" property="productImage"/>" 
-                                  alt="<jsp:getProperty name="product" property="productDescription"/>"
-                                  height="400"
-                                  width="<%out.println(widthAdjust);%>">
+                                
                             <div class="ui-tabs-panel " id="fragment-2" style="display: none;">
                                 <img alt="product 2 image" src="#">
                                 <div class="info">
@@ -146,7 +119,11 @@
 	                  <p class="long">
 	                      <% out.println(product.getProductDescription()); %>
 	                  </p>
-	                  <a class="green-btn find-more add-to-cart" style="float:right" id="<%out.print(product.getProductID());%>" href="javascript:void(0)">Add to cart</a>
+                          <a class="green-btn find-more add-to-cart" style="float:right" id="<%out.print(product.getProductID());%>" href="javascript:void(0)">Add to cart</a>
+                          <br>
+                          <h4 ><%out.println(product.getMoneyMF());%></h4>
+	                  
+                          
 	              </div>
 	            </div>
 
