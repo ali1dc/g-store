@@ -28,11 +28,7 @@
 %>
 
 
-<jsp:useBean id="considerOne" class="lib.Product" scope="request" />
-<jsp:useBean id="considerTwo" class="lib.Product" scope="request" />
-<jsp:useBean id="considerThree" class="lib.Product" scope="request" />
-<jsp:useBean id="considerFour" class="lib.Product" scope="request" />
-<jsp:useBean id="considerFive" class="lib.Product" scope="request" />
+
 
 
 <%
@@ -50,7 +46,7 @@
         <jsp:include page="includes/header.jsp"/>
         <!-- End of Header -->
         <div id="section">
-			<jsp:include page="includes/nav-left.jsp"/>
+			<jsp:include page="includes/nav-left-product.jsp"/>
             <section class="threecol main">
 
                 <div class="slide-block">
@@ -120,7 +116,7 @@
 	                      <% out.println(product.getProductDescription()); %>
 	                  </p>
                           <a class="green-btn find-more add-to-cart" style="float:right" id="<%out.print(product.getProductID());%>" href="javascript:void(0)">Add to cart</a>
-                          <br>
+                          
                           <h4 ><%out.println(product.getMoneyMF());%></h4>
 	                  
                           
