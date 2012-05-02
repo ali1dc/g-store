@@ -20,24 +20,18 @@ public class GStoreDataAccess {
         driver = "com.mysql.jdbc.Driver";
         
         // Remote database
-//        url = "jdbc:mysql://aligstore.db.7759592.hostedresource.com:3306/aligstore";
-//        user = "aligstore";
-//        password = "a+G[pv.R[_7@OF";
+        //url = "jdbc:mysql://aligstore.db.7759592.hostedresource.com:3306/aligstore";
+        //user = "aligstore";
+        //password = "a+G[pv.R[_7@OF";
         
         /**
          * We should move this to web.xml
          * 
-        // Taidg's local database
+        // Taidg's and James's local database
         */
         url = "jdbc:mysql://localhost:3306/gstore";
         user = "root";
         password = "";
-        /*
-         James's local database
-        url = "jdbc:mysql://localhost:3306/gstore";
-        user = "root";
-        password = "";
-        **/  
         // Ali's local 
 		/*url = "jdbc:mysql://localhost:3306/gstore";
 		user = "root";
@@ -144,7 +138,7 @@ public class GStoreDataAccess {
         {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
-            preparedStatement.setString(1, email);
+            preparedStatement.setString(1, email.toLowerCase());
             preparedStatement.setString(2, password);
             
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -177,7 +171,7 @@ public class GStoreDataAccess {
         {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
-            preparedStatement.setString(1, email);
+            preparedStatement.setString(1, email.toLowerCase());
             
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next() == true)
@@ -208,7 +202,7 @@ public class GStoreDataAccess {
             
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getLastName());
-            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(3, user.getEmail().toLowerCase());
             preparedStatement.setString(4, user.getPassword());
             
             preparedStatement.executeUpdate();
@@ -229,7 +223,7 @@ public class GStoreDataAccess {
         {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
-            preparedStatement.setString(1, role.getEmail());
+            preparedStatement.setString(1, role.getEmail().toLowerCase());
             preparedStatement.setString(2, role.getRoleName());
             
             preparedStatement.executeUpdate();
