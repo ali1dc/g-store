@@ -5,6 +5,7 @@
 package Login;
 
 import java.io.IOException;
+import java.net.URL;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,23 +27,27 @@ public class LoginServlet extends HttpServlet {
     {
         HttpSession session = request.getSession();
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
-        //response.setParameter("jsessionid"
+        
+        //URL refererUrl = new URL(request.getHeader("Referer"));
+        //session.setAttribute("sourceUrl", refererUrl);
         
         String url = "/login.jsp";
         
         if (loggedIn != null && loggedIn == true)
         {
             // User is logged in. Assumed to be checking out
-            url = "/checkout/index.html";
+            //url = refererUrl.getPath();
+            url = "/order-summary";
+            
             User user = (User) session.getAttribute("user");
             if (user != null)
             {
-                TrackingCookie.setCookie(response, user.getEmail());
+                //TrackingCookie.setCookie(response, user.getEmail());
             }
         }
         else
         {
-            TrackingCookie.getCookie(request);
+            //TrackingCookie.getCookie(request);
         }
         
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);

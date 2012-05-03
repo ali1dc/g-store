@@ -41,6 +41,15 @@
     <description>Customer</description>
     <role-name>customer</role-name>
   </security-role>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Login</web-resource-name>
+      <url-pattern>/login</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
   <login-config>
     <auth-method>FORM</auth-method>
     <form-login-config>

@@ -71,10 +71,10 @@ public class ValidateRegistrationServlet extends HttpServlet {
             String name = user.getFirstName();
             regUI.setLoginMsg(name);
 
-            TrackingCookie.setCookie(response, user.getEmail());
+            //TrackingCookie.setCookie(response, user.getEmail());
 
             // Redirect to next page.
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout/index.html");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/order-summary");
             dispatcher.forward(request, response);
         }
     }

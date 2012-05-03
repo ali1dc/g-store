@@ -6,6 +6,7 @@ package Login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,11 @@ public class ValidateLoginServlet extends HttpServlet {
         GStoreDataAccess gsda = GStoreDataAccess.getInstance();
         User user = gsda.getUser(email, password);
         
+            
+        //URL sourceUrl = (URL) session.getAttribute("sourceUrl");
+        //String url = sourceUrl.getPath();
+        String url = "/order-summary";
+        
         if (user != null)
         {
             // Credentials match
@@ -44,10 +50,10 @@ public class ValidateLoginServlet extends HttpServlet {
             regUI.setLoginMsg(name);
             session.setAttribute("regUI", regUI);
             
-            TrackingCookie.setCookie(response, user.getEmail());
-            TrackingCookie.getCookie(request);
-
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout/index.html");
+            //TrackingCookie.setCookie(response, user.getEmail());
+            //TrackingCookie.getCookie(request);
+            
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         }
         else

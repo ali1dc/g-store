@@ -11,7 +11,7 @@
                     <!-- else user is logged in -->
                     
                     <label class="find-bbb">
-                        <a href="https://127.0.0.1:8443/g-store/login"><jsp:getProperty name="regUI" property="loginMsg"/></a>
+                        <a href="/g-store/login"><jsp:getProperty name="regUI" property="loginMsg"/></a>
                     </label>
                 </h2>
             </div>
