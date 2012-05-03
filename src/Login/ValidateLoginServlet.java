@@ -6,7 +6,6 @@ package Login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URL;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,11 +34,6 @@ public class ValidateLoginServlet extends HttpServlet {
         GStoreDataAccess gsda = GStoreDataAccess.getInstance();
         User user = gsda.getUser(email, password);
         
-            
-        //URL sourceUrl = (URL) session.getAttribute("sourceUrl");
-        //String url = sourceUrl.getPath();
-        String url = "/order-summary";
-        
         if (user != null)
         {
             // Credentials match
@@ -49,19 +43,17 @@ public class ValidateLoginServlet extends HttpServlet {
             String name = user.getFirstName();
             regUI.setLoginMsg(name);
             session.setAttribute("regUI", regUI);
+            request.setAttribute("errorMsg", "");
             
-            //TrackingCookie.setCookie(response, user.getEmail());
-            //TrackingCookie.getCookie(request);
-            
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/order-summary");
             dispatcher.forward(request, response);
         }
         else
         {
             // Credentials don't match
-            PrintWriter out = response.getWriter();
-            out.println("<h1>Invalid log in creditials.</h1><p>Please go back and try again.</p>");
-            out.close();
+            request.setAttribute("errorMsg", "<p style='color:red;font-weight:bold;'>Invalid log-in credentials. Please try again.</p>");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login");
+            dispatcher.forward(request, response);
         }
     }
 

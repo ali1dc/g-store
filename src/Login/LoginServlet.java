@@ -5,7 +5,6 @@
 package Login;
 
 import java.io.IOException;
-import java.net.URL;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,29 +24,19 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        HttpSession session = request.getSession();
-        Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
-        
-        //URL refererUrl = new URL(request.getHeader("Referer"));
-        //session.setAttribute("sourceUrl", refererUrl);
-        
         String url = "/login.jsp";
-        
-        if (loggedIn != null && loggedIn == true)
+        if (request.getAttribute("errorMsg") == null)
         {
-            // User is logged in. Assumed to be checking out
-            //url = refererUrl.getPath();
-            url = "/order-summary";
-            
-            User user = (User) session.getAttribute("user");
-            if (user != null)
-            {
-                //TrackingCookie.setCookie(response, user.getEmail());
-            }
+            request.setAttribute("errorMsg", "");
         }
-        else
+        
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        if (user != null && loggedIn != null && loggedIn == true)
         {
-            //TrackingCookie.getCookie(request);
+            // User is logged in, so don't bother sending them to the login page.
+            url = "/order-summary";
         }
         
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);

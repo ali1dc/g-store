@@ -50,7 +50,7 @@ public class CheckoutServlet extends HttpServlet {
         }
         if(user == null) {
         	// for local test:
-        	response.sendRedirect("/g-store/login.jsp");
+        	response.sendRedirect("/g-store/login");
         }        
 		
 		

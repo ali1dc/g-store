@@ -38,16 +38,18 @@ public class ValidateRegistrationServlet extends HttpServlet {
         if (email.equals("") || password.equals("") || firstName.equals("") || lastName.equals(""))
         {
             // Missing information
-            PrintWriter out = response.getWriter();
-            out.println("<h1>Please fill in first name, last name, email, and password.</h1>");
-            out.close();
+            request.setAttribute("errorMsg",
+                    "<p style='color:red;font-weight:bold;'>Please fill in all registration fields.</p>");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login");
+            dispatcher.forward(request, response);
         }
         else if (password.equals(confirmPassword) == false)
         {
             // Passwords don't match
-            PrintWriter out = response.getWriter();
-            out.println("<h1>You entered two different passwords.</h1>");
-            out.close();
+            request.setAttribute("errorMsg",
+                    "<p style='color:red;font-weight:bold;'>Your passwords didn't match.</p>");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login");
+            dispatcher.forward(request, response);
         }
         else
         {
@@ -70,8 +72,6 @@ public class ValidateRegistrationServlet extends HttpServlet {
             RegistrationUIBean regUI = (RegistrationUIBean)session.getAttribute("regUI");
             String name = user.getFirstName();
             regUI.setLoginMsg(name);
-
-            //TrackingCookie.setCookie(response, user.getEmail());
 
             // Redirect to next page.
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/order-summary");

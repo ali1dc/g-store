@@ -22,6 +22,8 @@
         <div id="page">
             <!-- Header -->
             <jsp:include page="includes/header.jsp"/>
+            
+            <%= request.getAttribute("errorMsg") %>
 
             <jsp:useBean id="user" scope="session" class="lib.User"/>
             <table id="outerTable">
